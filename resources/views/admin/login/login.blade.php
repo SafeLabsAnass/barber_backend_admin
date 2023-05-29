@@ -7,7 +7,7 @@
                 <?php $bg_img = \App\AdminSetting::find(1)->bg_img; ?>
                 <div class="col-md-6 p-0 m-none"
                     style="background: url({{ asset('storage/images/app/' . $bg_img) }}) center center;background-size: cover;background-repeat: no-repeat;">
-                    <span class="mask bg-gradient-dark opacity-6"></span>
+                    <span class="mask bg-gradient-dark" style="opacity: 0.25;"></span>
                 </div>
 
                 <div class="col-md-6 p-0 data-box-col">
@@ -51,7 +51,7 @@
                                     <div class="form-group forget-password">
                                         <a href="{{ url('/admin/forgetpassword') }}">{{ __('Forgot password?') }}</a>
                                     </div>
-                                    
+
                                     <div class="pui-form__element">
                                         <button class="btn btn-lg btn-primary btn-block btn-salon"
                                             type="submit">{{ __('SIGN IN') }}</button>
