@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 
-class HomeController extends Controller
+class HomeController extends CommonController
 {
     /**
      * Create a new controller instance.
@@ -14,20 +19,20 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->languageTranslate("French");
+        $this->middleware("auth");
     }
 
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return Application|RedirectResponse|Redirector
      */
     public function index()
     {
-        if(Auth::check())
-        {
+        if (Auth::check()) {
             Auth::logout();
         }
-        return redirect('admin/login');
+        return redirect("admin/login");
     }
 }

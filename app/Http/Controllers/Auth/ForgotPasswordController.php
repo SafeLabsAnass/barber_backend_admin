@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\CommonController;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+use Illuminate\Support\Facades\App;
 
-class ForgotPasswordController extends Controller
+class ForgotPasswordController extends CommonController
 {
     /*
     |--------------------------------------------------------------------------
@@ -19,4 +21,9 @@ class ForgotPasswordController extends Controller
     */
 
     use SendsPasswordResetEmails;
+
+    public function __construct()
+    {
+        $this->languageTranslate("French");
+    }
 }

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-top navbar-expand navbar-dark">
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      
+
       <!-- Navbar links -->
       <ul class="navbar-nav align-items-center  ml-md-auto ">
         <li class="nav-item d-xl-none">
@@ -22,14 +22,13 @@
       </ul>
 
       <?php
-        $langs = \App\Language::where('status',1)->get();
-        $icon = \App\Language::where('name',session('locale'))->first();
-        if($icon){
-          $lang_image="/storage/images/language/".$icon->image;
-        }
-        else{
-          $lang_image="/storage/images/language/English.jpg";
-        }
+      $langs = \App\Language::where("status", 1)->get();
+      $icon = \App\Language::where("name", session("locale"))->first();
+      if ($icon) {
+          $lang_image = "/storage/images/language/" . $icon->image;
+      } else {
+          $lang_image = "/storage/images/language/English.jpg";
+      }
       ?>
 
       <ul class="navbar-nav align-items-center  ml-auto ml-md-0 flag-ul ">
@@ -73,14 +72,14 @@
             <div class="dropdown-header noti-title">
               <h6 class="text-overflow m-0">{{__('Welcome!')}}</h6>
             </div>
-           
+
               <a href="{{url('/admin/profile')}}" class="dropdown-item">
                   <i class="ni ni-single-02"></i>
                   <span>{{__('My profile')}}</span>
               </a>
-            
+
               <div class="dropdown-divider"></div>
-            
+
               <a href="{{url('/admin/salon')}}" class="dropdown-item">
                   <i class="ni ni-scissors"></i>
                   <span>{{ __('My Salon') }}</span>

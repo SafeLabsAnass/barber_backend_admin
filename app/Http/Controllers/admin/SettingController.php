@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Http\Controllers\CommonController;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Currency;
@@ -12,69 +13,76 @@ use App\Mail\TestMail;
 use App\Service;
 use App\User;
 use Exception;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Mail;
 use LicenseBoxExternalAPI;
 
-
-class SettingController extends Controller
+class SettingController extends CommonController
 {
+    public function __construct()
+    {
+        $this->languageTranslate("French");
+    }
+
     public function index()
     {
         $setting = AdminSetting::find(1);
         $currency = Currency::get();
         $setting = AdminSetting::first();
         $payment = PaymentSetting::first();
-        return view('admin.pages.settings', compact('currency', 'setting', 'payment'));
+        return view(
+            "admin.pages.settings",
+            compact("currency", "setting", "payment")
+        );
     }
 
     public function update_license(Request $request, $id)
     {
         $request->validate([
-            'license_code' => 'required',
-            'license_client_name' => 'required',
+            "license_code" => "required",
+            "license_client_name" => "required",
         ]);
         $setting = AdminSetting::find(1);
         $setting->license_code = $request->license_code;
         $setting->license_client_name = $request->license_client_name;
         $setting->license_status = 1;
         $setting->save();
-        return redirect('/admin/dashboard');
-
+        return redirect("/admin/dashboard");
     }
 
     public function update(Request $request, $id)
     {
         $request->validate([
-            'app_id' => 'required_if:notification,1',
-            'radius' => 'required_if:notification,1',
-            'project_no' => 'required_if:notification,1',
-            'api_key' => 'required_if:notification,1',
-            'auth_key' => 'required_if:notification,1',
+            "app_id" => "required_if:notification,1",
+            "radius" => "required_if:notification,1",
+            "project_no" => "required_if:notification,1",
+            "api_key" => "required_if:notification,1",
+            "auth_key" => "required_if:notification,1",
 
-            'mail_host' => 'required_if:mail,1',
-            'mail_port' => 'required_if:mail,1',
-            'mail_username' => 'required_if:mail,1',
-            'mail_password' => 'required_if:mail,1',
-            'sender_email' => 'required_if:mail,1',
+            "mail_host" => "required_if:mail,1",
+            "mail_port" => "required_if:mail,1",
+            "mail_username" => "required_if:mail,1",
+            "mail_password" => "required_if:mail,1",
+            "sender_email" => "required_if:mail,1",
 
-            'twilio_acc_id' => 'required_if:sms,1',
-            'twilio_auth_token' => 'required_if:sms,1',
-            'twilio_phone_no' => 'required_if:sms,1',
+            "twilio_acc_id" => "required_if:sms,1",
+            "twilio_auth_token" => "required_if:sms,1",
+            "twilio_phone_no" => "required_if:sms,1",
 
-            'stripe_public_key' => 'required_if:stripe,1',
-            'stripe_secret_key' => 'required_if:stripe,1',
+            "stripe_public_key" => "required_if:stripe,1",
+            "stripe_secret_key" => "required_if:stripe,1",
 
-            'paypal_sandbox_key' => 'required_if:paypal,1',
-            'paypal_production_key' => 'required_if:paypal,1',
+            "paypal_sandbox_key" => "required_if:paypal,1",
+            "paypal_production_key" => "required_if:paypal,1",
 
-            'flutterwave_public_key' => 'required_if:flutterwave,1',
+            "flutterwave_public_key" => "required_if:flutterwave,1",
 
-            'latitude' => 'bail|required|numeric',
-            'longitude' => 'bail|required|numeric',
-            'app_name' => 'bail|required',
+            "latitude" => "bail|required|numeric",
+            "longitude" => "bail|required|numeric",
+            "app_name" => "bail|required",
         ]);
 
         $setting = AdminSetting::find(1);
@@ -87,7 +95,10 @@ class SettingController extends Controller
         }
 
         if ($request->user_verify == 1) {
-            if (isset($request->user_verify_sms) || isset($request->user_verify_email)) {
+            if (
+                isset($request->user_verify_sms) ||
+                isset($request->user_verify_email)
+            ) {
                 if (isset($request->user_verify_sms)) {
                     $setting->user_verify_sms = 1;
                 } else {
@@ -100,7 +111,9 @@ class SettingController extends Controller
                     $setting->user_verify_email = 0;
                 }
             } else {
-                return Redirect::back()->withErrors(['Please Check at least one between SMS or Email']);
+                return Redirect::back()->withErrors([
+                    "Please Check at least one between SMS or Email",
+                ]);
             }
         } else {
             if (isset($request->user_verify_sms)) {
@@ -116,7 +129,7 @@ class SettingController extends Controller
             }
         }
 
-        $currency = Currency::where('code', $request->currency)->first();
+        $currency = Currency::where("code", $request->currency)->first();
         $setting->currency_symbol = $currency->symbol;
 
         $setting->currency = $request->currency;
@@ -124,10 +137,11 @@ class SettingController extends Controller
         $setting->radius = $request->radius;
         $setting->lat = $request->latitude;
         $setting->lang = $request->longitude;
-        if (isset($request->notification))
+        if (isset($request->notification)) {
             $setting->notification = 1;
-        else
+        } else {
             $setting->notification = 0;
+        }
 
         $setting->app_id = $request->app_id;
         $setting->api_key = $request->api_key;
@@ -183,55 +197,90 @@ class SettingController extends Controller
         $setting->shared_name = $request->shared_name;
         $setting->shared_url = $request->shared_url;
 
-        if ($request->hasFile('favicon_icon')) {
-            if (\File::exists(public_path('/storage/images/app/' . $setting->favicon)))
-                \File::delete(public_path('/storage/images/app/' . $setting->favicon));
+        if ($request->hasFile("favicon_icon")) {
+            if (
+                \File::exists(
+                    public_path("/storage/images/app/" . $setting->favicon)
+                )
+            ) {
+                \File::delete(
+                    public_path("/storage/images/app/" . $setting->favicon)
+                );
+            }
 
-            $image = $request->file('favicon_icon');
-            $name = 'favicon.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('/storage/images/app');
+            $image = $request->file("favicon_icon");
+            $name = "favicon." . $image->getClientOriginalExtension();
+            $destinationPath = public_path("/storage/images/app");
             $image->move($destinationPath, $name);
             $setting->favicon = $name;
         }
-        if ($request->hasFile('black_logo')) {
-            if (\File::exists(public_path('/storage/images/app/' . $setting->black_logo)))
-                \File::delete(public_path('/storage/images/app/' . $setting->black_logo));
+        if ($request->hasFile("black_logo")) {
+            if (
+                \File::exists(
+                    public_path("/storage/images/app/" . $setting->black_logo)
+                )
+            ) {
+                \File::delete(
+                    public_path("/storage/images/app/" . $setting->black_logo)
+                );
+            }
 
-            $image = $request->file('black_logo');
-            $name = 'black_logo.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('/storage/images/app');
+            $image = $request->file("black_logo");
+            $name = "black_logo." . $image->getClientOriginalExtension();
+            $destinationPath = public_path("/storage/images/app");
             $image->move($destinationPath, $name);
             $setting->black_logo = $name;
         }
-        if ($request->hasFile('white_logo')) {
-            if (\File::exists(public_path('/storage/images/app/' . $setting->white_logo)))
-                \File::delete(public_path('/storage/images/app/' . $setting->white_logo));
+        if ($request->hasFile("white_logo")) {
+            if (
+                \File::exists(
+                    public_path("/storage/images/app/" . $setting->white_logo)
+                )
+            ) {
+                \File::delete(
+                    public_path("/storage/images/app/" . $setting->white_logo)
+                );
+            }
 
-            $image = $request->file('white_logo');
-            $name = 'white_logo.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('/storage/images/app');
+            $image = $request->file("white_logo");
+            $name = "white_logo." . $image->getClientOriginalExtension();
+            $destinationPath = public_path("/storage/images/app");
             $image->move($destinationPath, $name);
             $setting->white_logo = $name;
         }
 
-        if ($request->hasFile('bg_img')) {
-            if (\File::exists(public_path('/storage/images/app/' . $setting->bg_img)))
-                \File::delete(public_path('/storage/images/app/' . $setting->bg_img));
+        if ($request->hasFile("bg_img")) {
+            if (
+                \File::exists(
+                    public_path("/storage/images/app/" . $setting->bg_img)
+                )
+            ) {
+                \File::delete(
+                    public_path("/storage/images/app/" . $setting->bg_img)
+                );
+            }
 
-            $image = $request->file('bg_img');
-            $name = 'bg_img.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('/storage/images/app');
+            $image = $request->file("bg_img");
+            $name = "bg_img." . $image->getClientOriginalExtension();
+            $destinationPath = public_path("/storage/images/app");
             $image->move($destinationPath, $name);
             $setting->bg_img = $name;
         }
 
-        if ($request->hasFile('shared_image')) {
-            if (\File::exists(public_path('/storage/images/app/' . $setting->shared_image)))
-                \File::delete(public_path('/storage/images/app/' . $setting->shared_image));
+        if ($request->hasFile("shared_image")) {
+            if (
+                \File::exists(
+                    public_path("/storage/images/app/" . $setting->shared_image)
+                )
+            ) {
+                \File::delete(
+                    public_path("/storage/images/app/" . $setting->shared_image)
+                );
+            }
 
-            $image = $request->file('shared_image');
-            $name = 'shared_image.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('/storage/images/app');
+            $image = $request->file("shared_image");
+            $name = "shared_image." . $image->getClientOriginalExtension();
+            $destinationPath = public_path("/storage/images/app");
             $image->move($destinationPath, $name);
             $setting->shared_image = $name;
         }
@@ -239,15 +288,15 @@ class SettingController extends Controller
         $payment->save();
         $setting->save();
 
-        $data['APP_ID'] = $request->app_id;
-        $data['REST_API_KEY'] = $request->api_key;
-        $data['USER_AUTH_KEY'] = $request->auth_key;
+        $data["APP_ID"] = $request->app_id;
+        $data["REST_API_KEY"] = $request->api_key;
+        $data["USER_AUTH_KEY"] = $request->auth_key;
 
-        $data['MAIL_HOST'] = $request->mail_host;
-        $data['MAIL_PORT'] = $request->mail_port;
-        $data['MAIL_USERNAME'] = $request->mail_username;
-        $data['MAIL_PASSWORD'] = $request->mail_password;
-        $data['MAIL_FROM_ADDRESS'] = $request->sender_email;
+        $data["MAIL_HOST"] = $request->mail_host;
+        $data["MAIL_PORT"] = $request->mail_port;
+        $data["MAIL_USERNAME"] = $request->mail_username;
+        $data["MAIL_PASSWORD"] = $request->mail_password;
+        $data["MAIL_FROM_ADDRESS"] = $request->sender_email;
         $envFile = app()->environmentFilePath();
         if ($envFile) {
             $str = file_get_contents($envFile);
@@ -255,21 +304,30 @@ class SettingController extends Controller
                 foreach ($data as $envKey => $envValue) {
                     $keyPosition = strpos($str, "{$envKey}=");
                     $endOfLinePosition = strpos($str, "\n", $keyPosition);
-                    $oldLine = substr($str, $keyPosition, $endOfLinePosition - $keyPosition);
+                    $oldLine = substr(
+                        $str,
+                        $keyPosition,
+                        $endOfLinePosition - $keyPosition
+                    );
 
-                    if (!$keyPosition || !$endOfLinePosition || !$oldLine)
+                    if (!$keyPosition || !$endOfLinePosition || !$oldLine) {
                         $str .= "{$envKey}={$envValue}\n";
-                    else
-                        $str = str_replace($oldLine, "{$envKey}={$envValue}", $str);
+                    } else {
+                        $str = str_replace(
+                            $oldLine,
+                            "{$envKey}={$envValue}",
+                            $str
+                        );
+                    }
                 }
             }
             $str = substr($str, 0, -1);
             if (!file_put_contents($envFile, $str)) {
                 return false;
             } else {
-                return redirect('admin/settings');
+                return redirect("admin/settings");
             }
-            return Redirect::back()->withErrors(['Error check']);
+            return Redirect::back()->withErrors(["Error check"]);
         }
     }
 
@@ -277,31 +335,54 @@ class SettingController extends Controller
     public function admin_show()
     {
         $user = User::find(Auth::user()->id);
-        $payment = Booking::where([['payment_status', 1], ['booking_status', '!=', 'Cancelled']])->sum('payment');
+        $payment = Booking::where([
+            ["payment_status", 1],
+            ["booking_status", "!=", "Cancelled"],
+        ])->sum("payment");
         $symbol = AdminSetting::find(1)->currency_symbol;
         $services = Service::count();
-        $users = User::where('role', 3)->count();
-        return view('admin.pages.profile', compact('user', 'services', 'payment', 'symbol', 'users'));
+        $users = User::where("role", 3)->count();
+        return view(
+            "admin.pages.profile",
+            compact("user", "services", "payment", "symbol", "users")
+        );
     }
 
     public function admin_update(Request $request)
     {
         $request->validate([
-            'email' => 'bail|required|email|unique:users,email,' . Auth::user()->id . ',id',
-            'name' => 'bail|required',
-            'code' => 'bail|required',
-            'phone' => 'bail|required|numeric|unique:users,phone,' . Auth::user()->id . ',id',
+            "email" =>
+                "bail|required|email|unique:users,email," .
+                Auth::user()->id .
+                ",id",
+            "name" => "bail|required",
+            "code" => "bail|required",
+            "phone" =>
+                "bail|required|numeric|unique:users,phone," .
+                Auth::user()->id .
+                ",id",
         ]);
 
         $user = User::find(Auth::user()->id);
-        if ($request->hasFile('image')) {
-            if ($user->image != 'noimage.jpg') {
-                if (\File::exists(public_path('/storage/images/users/' . $user->image)))
-                    \File::delete(public_path('/storage/images/users/' . $user->image));
+        if ($request->hasFile("image")) {
+            if ($user->image != "noimage.jpg") {
+                if (
+                    \File::exists(
+                        public_path("/storage/images/users/" . $user->image)
+                    )
+                ) {
+                    \File::delete(
+                        public_path("/storage/images/users/" . $user->image)
+                    );
+                }
             }
-            $image = $request->file('image');
-            $name = 'admin_' . uniqid() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('/storage/images/users');
+            $image = $request->file("image");
+            $name =
+                "admin_" .
+                uniqid() .
+                "." .
+                $image->getClientOriginalExtension();
+            $destinationPath = public_path("/storage/images/users");
             $image->move($destinationPath, $name);
             $user->image = $name;
         }
@@ -317,13 +398,18 @@ class SettingController extends Controller
     public function admin_changePassword(Request $request)
     {
         $request->validate([
-            'old_password' => ['required', 'string', 'min:8'],
-            'new_password' => ['required', 'string', 'min:8'],
-            'confirm_password' => ['required', 'string', 'min:8', 'same:new_password'],
+            "old_password" => ["required", "string", "min:8"],
+            "new_password" => ["required", "string", "min:8"],
+            "confirm_password" => [
+                "required",
+                "string",
+                "min:8",
+                "same:new_password",
+            ],
         ]);
         if (Hash::check($request->old_password, Auth::user()->password)) {
             $password = Hash::make($request->new_password);
-            User::find(Auth::user()->id)->update(['password' => $password]);
+            User::find(Auth::user()->id)->update(["password" => $password]);
         }
         return Redirect::back();
     }
@@ -332,13 +418,19 @@ class SettingController extends Controller
     {
         try {
             $setting = AdminSetting::first();
-            $subject = 'Test Mail From Admin Panel';
-            $message = 'This is a test email sent from the admin panel to ensure the proper configuration';
+            $subject = "Test Mail From Admin Panel";
+            $message =
+                "This is a test email sent from the admin panel to ensure the proper configuration";
             // return [$setting->app_name,$subject, $message];
-            Mail::to($request->to)->send(new TestMail($message, $subject, $setting->app_name));
-            return response()->json(['success' => true, 'message' => 'Mail Send Successfully!'], 200);
+            Mail::to($request->to)->send(
+                new TestMail($message, $subject, $setting->app_name)
+            );
+            return response()->json(
+                ["success" => true, "message" => "Mail Send Successfully!"],
+                200
+            );
         } catch (Exception $e) {
-            return response()->json(['success' => false, 'data' => $e]);
+            return response()->json(["success" => false, "data" => $e]);
         }
     }
 }

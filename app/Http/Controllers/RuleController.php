@@ -6,8 +6,13 @@ use App\AdminSetting;
 use Html2Text\Html2Text;
 use Illuminate\Support\Facades\DB;
 
-class RuleController extends Controller
+class RuleController extends CommonController
 {
+    public function __construct()
+    {
+        $this->languageTranslate("French");
+    }
+
     public function getTermsAndConditions()
     {
         $setting = DB::table("adminsetting")->first();

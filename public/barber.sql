@@ -417,9 +417,10 @@ CREATE TABLE `language` (
 -- Dumping data for table `language`
 --
 
-INSERT INTO `language` (`id`, `name`, `file`, `image`, `direction`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'English', 'English.json', 'English.jpg', 'ltr', 1, '2020-10-02 05:56:49', '2022-08-06 08:12:07'),
-(2, 'Arabic', 'Arabic.json', 'Arabic.jpg', 'rtl', 1, '2020-10-02 06:04:41', '2022-07-20 04:56:12');
+insert into beauty.language (id, name, file, image, direction, status, created_at, updated_at)
+values  (1, 'English', 'English.json', 'English.jpg', 'ltr', 1, '2020-10-02 06:56:49', '2020-10-02 06:56:49'),
+        (2, 'Arabic', 'Arabic.json', 'Arabic.png', 'rtl', 0, '2020-10-02 07:04:41', '2020-10-02 07:04:41'),
+        (5, 'French', 'French.json', 'French.jpg', 'ltr', 1, '2023-10-02 07:08:25', '2023-10-02 07:08:25');
 
 -- --------------------------------------------------------
 

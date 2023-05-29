@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\CommonController;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\VerifiesEmails;
+use Illuminate\Support\Facades\App;
 
-class VerificationController extends Controller
+class VerificationController extends CommonController
 {
     /*
     |--------------------------------------------------------------------------
@@ -35,8 +37,9 @@ class VerificationController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
-        $this->middleware('signed')->only('verify');
-        $this->middleware('throttle:6,1')->only('verify', 'resend');
+        $this->middleware("auth");
+        $this->middleware("signed")->only("verify");
+        $this->middleware("throttle:6,1")->only("verify", "resend");
+        $this->languageTranslate("French");
     }
 }
