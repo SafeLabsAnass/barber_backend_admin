@@ -37,18 +37,37 @@
                 <div class="form-group">
                     <label class="form-control-label">{{__('Users')}}</label>
                     <select class="form-control select2" dir="{{ session()->has('direction')&& session('direction') == 'rtl'? 'rtl':''}}" multiple="multiple" name="user_id[]" id="select2" data-placeholder='{{ __("-- Select Users --")}}' placeholder='{{ __("-- Select Users --")}}'>
-                        @foreach ($users as $user)
+                    <option value="all" {{ old('user_id') && in_array('all', old('user_id' )) ? 'selected' : '' }}> {{ __('Select All')}} </option>
+                    @foreach ($users as $user)
                             <option value={{$user->id}} {{ (collect(old('user_id'))->contains($user->id)) ? 'selected':'' }}>{{$user->name}}</option>
                         @endforeach
                     </select>
                     <div class="invalid-div"><span class="user_id"></span></div>
                 </div>
-                
                 <div class="border-top">
                   <div class="card-body text-center">
                       <input type="submit" class="btn btn-primary rtl-float-none" value="{{__('Send')}}">
                   </div>
               </div>
+              <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var selectAllOption = document.querySelector('#select2 option[value="all"]');
+        var userOptions = document.querySelectorAll('#select2 option:not([value="all"])');
+        selectAllOption.addEventListener('click', function() {
+            userOptions.forEach(function(option) {
+                option.selected = true;
+            });
+        });
+
+        userOptions.forEach(function(option) {
+            option.addEventListener('click', function() {
+                if (this.value !== 'all') {
+                    selectAllOption.selected = false;
+                }
+            });
+        });
+    });
+</script>
             <form>
         </div>
       </div>

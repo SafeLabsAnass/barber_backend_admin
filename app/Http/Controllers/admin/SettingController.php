@@ -430,6 +430,7 @@ class SettingController extends CommonController
                 200
             );
         } catch (Exception $e) {
+            // dd($e);
             return response()->json(["success" => false, "data" => $e]);
         }
     }
