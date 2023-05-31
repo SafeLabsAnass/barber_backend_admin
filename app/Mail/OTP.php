@@ -16,7 +16,7 @@ class OTP extends Mailable
      *
      * @return void
      */
-    public function __construct($content,$detail)
+    public function __construct($content, $detail)
     {
         $this->content = $content;
         $this->detail = $detail;
@@ -27,19 +27,22 @@ class OTP extends Mailable
      *
      * @return $this
      */
-    public function build()
+    public function build(): static
     {
         $this->replaceContent();
-
-        return $this->from($address = env('MAIL_FROM_ADDRESS'), $name = $this->detail['AdminName'])
-        ->subject('User Verification')->view('admin/mail/userVerificationMail')
-        ->with([
-        'content' => $this->content,
-        ]);
+        return $this->from(
+            $address = env("MAIL_FROM_ADDRESS"),
+            $name = $this->detail["app_name"]
+        )
+            ->subject("User Verification")
+            ->view("admin/mail/userVerificationMail")
+            ->with([
+                "content" => $this->content,
+            ]);
     }
     public function replaceContent()
     {
-        $data = ["{{UserName}}", "{{OTP}}","{{AdminName}}"];
+        $data = ["{{User_name}}", "{{OTP}}", "{{App_name}}"];
         $this->content = str_replace($data, $this->detail, $this->content);
     }
 }
