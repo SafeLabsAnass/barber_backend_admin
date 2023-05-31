@@ -374,6 +374,7 @@ class BookingController extends CommonController
                     )
                 );
             } catch (\Throwable $th) {
+                dd($th);
             }
         }
         if ($notification_enable == 1 && $booking->user->device_token != null) {

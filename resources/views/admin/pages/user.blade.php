@@ -13,7 +13,7 @@
                 <div class="card">
                     <!-- Card header -->
                     <div class="card-header border-0">
-                        <span class="h3">{{ __('Client table') }}</span>
+                        <span class="h3">{{ __('Liste des clients') }}</span>
                         <button class="btn btn-primary addbtn float-right p-2 add_user" id="add_user"><i
                                 class="fas fa-plus mr-1"></i>{{ __('Add New') }}</button>
                     </div>

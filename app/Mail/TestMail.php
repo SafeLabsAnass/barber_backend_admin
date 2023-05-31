@@ -15,7 +15,7 @@ class TestMail extends Mailable
      *
      * @return void
      */
-    public function __construct($content,$subject,$app_name)
+    public function __construct($content, $subject, $app_name)
     {
         $this->content = $content;
         $this->subject = $subject;
@@ -29,9 +29,11 @@ class TestMail extends Mailable
      */
     public function build()
     {
-        return $this->from(env('MAIL_FROM_ADDRESS'))->subject('('.$this->app_name.')'.$this->subject)
-        ->view('send_mail')->with([
-            'content' => $this->content,
-        ]);
+        return $this->from(env("MAIL_FROM_ADDRESS"))
+            ->subject("(" . $this->app_name . ")" . $this->subject)
+            ->view("send_mail")
+            ->with([
+                "content" => $this->content,
+            ]);
     }
 }

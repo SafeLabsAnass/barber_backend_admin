@@ -16,7 +16,7 @@ class CreateAppointment extends Mailable
      *
      * @return void
      */
-    public function __construct($content,$detail)
+    public function __construct($content, $detail)
     {
         $this->content = $content;
         $this->detail = $detail;
@@ -30,16 +30,25 @@ class CreateAppointment extends Mailable
     public function build()
     {
         $this->replaceContent();
-
-        return $this->from($address = env('MAIL_FROM_ADDRESS'), $name = $this->detail['AdminName'])
-        ->subject('Appointment Created')->view('admin/mail/createAppointmentMail')
-        ->with([
-        'content' => $this->content,
-        ]);
+        return $this->from(
+            $address = env("MAIL_FROM_ADDRESS"),
+            $name = $this->detail["AdminName"]
+        )
+            ->subject("Appointment Created")
+            ->view("admin/mail/createAppointmentMail")
+            ->with([
+                "content" => $this->content,
+            ]);
     }
     public function replaceContent()
-    {        
-        $data = ["{{UserName}}", "{{Date}}","{{Time}}","{{BookingId}}","{{SalonName}}"];
+    {
+        $data = [
+            "{{UserName}}",
+            "{{Date}}",
+            "{{Time}}",
+            "{{BookingId}}",
+            "{{SalonName}}",
+        ];
         $this->content = str_replace($data, $this->detail, $this->content);
     }
 }

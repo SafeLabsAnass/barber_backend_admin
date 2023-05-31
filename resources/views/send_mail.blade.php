@@ -1,1 +1,1 @@
-{!! clean($content) !!}
+{!! $content !!}
