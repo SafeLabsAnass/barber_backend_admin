@@ -197,10 +197,10 @@ CREATE TABLE `currency` (
 --
 
 INSERT INTO `currency` (`id`, `country`, `currency`, `code`, `symbol`) VALUES
-(null, "Morocco", "Dirhams Marocain", "MAD", "DH"),
-(null, "United States", "US Dollar", "USD", "$"),
-(null, "European Union", "Euro", "EUR", "€"),
-(null, "United Kingdom", "Sterling", "GBP", "£");
+(1, "Morocco", "Dirhams Marocain", "MAD", "DH"),
+(2, "United States", "US Dollar", "USD", "$"),
+(3, "European Union", "Euro", "EUR", "€"),
+(4, "United Kingdom", "Sterling", "GBP", "£");
 
 -- --------------------------------------------------------
 
