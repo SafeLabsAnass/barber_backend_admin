@@ -9,7 +9,7 @@
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "+00:00";
+SET time_zone = "+01:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `barber_blank`
+-- Database: `beauty`
 --
 
 -- --------------------------------------------------------
@@ -98,7 +98,7 @@ CREATE TABLE `adminsetting` (
 --
 
 INSERT INTO `adminsetting` (`id`, `user_verify`, `user_verify_sms`, `user_verify_email`, `currency`, `currency_symbol`, `mapkey`, `lat`, `lang`, `notification`, `app_id`, `api_key`, `auth_key`, `project_no`, `mail`, `mail_host`, `mail_port`, `mail_username`, `mail_password`, `sender_email`, `sms`, `twilio_acc_id`, `twilio_auth_token`, `twilio_phone_no`, `terms_conditions`, `privacy_policy`, `radius`, `app_name`, `favicon`, `black_logo`, `white_logo`, `app_version`, `footer1`, `footer2`, `bg_img`, `color`, `license_code`, `license_client_name`, `license_status`, `shared_name`, `shared_image`, `shared_url`, `created_at`, `updated_at`) VALUES
-(1, 0, 0, 0, 'JMD', 'J$', NULL, '21.1702', '72.8311', 0, NULL, NULL, NULL, NULL, 0, 'asdasdasd', NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text.', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text.', 50, 'The Barber- single', 'favicon.png', 'black_logo.png', 'white_logo.png', 'Version 01.0.00', '©Thebarber 2020-22', 'All rights reserved', 'bg_img.jpg', '#e06287', '6087-0FD4-9LEM-C606', 'saasmonks', 1, 'The Barber- single', 'shared_image.jpg', 'https://www.google.com/', '2020-08-14 05:37:51', '2022-08-09 06:44:10');
+(1, 1, 0, 1, 'EUR', '€', NULL, '21.1702', '72.8311', 1, NULL, NULL, NULL, NULL, 1, 'mail.infomaniak.com', '465', 'no-reply@safelabs.agency', 'Labs@0040!', 'no-reply@safelabs.agency', 0, NULL, NULL, NULL, 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text.', '<h1>Privacy Policy</h1>\r\n<p>Last updated: May 25, 2023</p>\r\n<p>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.</p>\r\n<p>We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy. This Privacy Policy has been created with the help of the <a href=\"https://www.freeprivacypolicy.com/free-privacy-policy-generator/\" target=\"_blank\">Free Privacy Policy Generator</a>.</p>\r\n<h1>Interpretation and Definitions</h1>\r\n<h2>Interpretation</h2>\r\n<p>The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</p>\r\n<h2>Definitions</h2>\r\n<p>For the purposes of this Privacy Policy:</p>\r\n<ul>\r\n<li>\r\n<p><strong>Account</strong> means a unique account created for You to access our Service or parts of our Service.</p>\r\n</li>\r\n<li>\r\n<p><strong>Affiliate</strong> means an entity that controls, is controlled by or is under common control with a party, where \"control\" means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.</p>\r\n</li>\r\n<li>\r\n<p><strong>Application</strong> refers to Beauty Center App, the software program provided by the Company.</p>\r\n</li>\r\n<li>\r\n<p><strong>Company</strong> (referred to as either \"the Company\", \"We\", \"Us\" or \"Our\" in this Agreement) refers to Beauty Center App.</p>\r\n</li>\r\n<li>\r\n<p><strong>Country</strong> refers to: Morocco</p>\r\n</li>\r\n<li>\r\n<p><strong>Device</strong> means any device that can access the Service such as a computer, a cellphone or a digital tablet.</p>\r\n</li>\r\n<li>\r\n<p><strong>Personal Data</strong> is any information that relates to an identified or identifiable individual.</p>\r\n</li>\r\n<li>\r\n<p><strong>Service</strong> refers to the Application.</p>\r\n</li>\r\n<li>\r\n<p><strong>Service Provider</strong> means any natural or legal person who processes the data on behalf of the Company. It refers to third-party companies or individuals employed by the Company to facilitate the Service, to provide the Service on behalf of the Company, to perform services related to the Service or to assist the Company in analyzing how the Service is used.</p>\r\n</li>\r\n<li>\r\n<p><strong>Usage Data</strong> refers to data collected automatically, either generated by the use of the Service or from the Service infrastructure itself (for example, the duration of a page visit).</p>\r\n</li>\r\n<li>\r\n<p><strong>You</strong> means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</p>\r\n</li>\r\n</ul>\r\n<h1>Collecting and Using Your Personal Data</h1>\r\n<h2>Types of Data Collected</h2>\r\n<h3>Personal Data</h3>\r\n<p>While using Our Service, We may ask You to provide Us with certain personally identifiable information that can be used to contact or identify You. Personally identifiable information may include, but is not limited to:</p>\r\n<ul>\r\n<li>\r\n<p>First name and last name</p>\r\n</li>\r\n<li>\r\n<p>Phone number</p>\r\n</li>\r\n<li>\r\n<p>Usage Data</p>\r\n</li>\r\n</ul>\r\n<h3>Usage Data</h3>\r\n<p>Usage Data is collected automatically when using the Service.</p>\r\n<p>Usage Data may include information such as Your Device\'s Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data.</p>\r\n<p>When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data.</p>\r\n<p>We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device.</p>\r\n<h3>Information Collected while Using the Application</h3>\r\n<p>While using Our Application, in order to provide features of Our Application, We may collect, with Your prior permission:</p>\r\n<ul>\r\n<li>Information regarding your location</li>\r\n</ul>\r\n<p>We use this information to provide features of Our Service, to improve and customize Our Service. The information may be uploaded to the Company\'s servers and/or a Service Provider\'s server or it may be simply stored on Your device.</p>\r\n<p>You can enable or disable access to this information at any time, through Your Device settings.</p>\r\n<h2>Use of Your Personal Data</h2>\r\n<p>The Company may use Personal Data for the following purposes:</p>\r\n<ul>\r\n<li>\r\n<p><strong>To provide and maintain our Service</strong>, including to monitor the usage of our Service.</p>\r\n</li>\r\n<li>\r\n<p><strong>To manage Your Account:</strong> to manage Your registration as a user of the Service. The Personal Data You provide can give You access to different functionalities of the Service that are available to You as a registered user.</p>\r\n</li>\r\n<li>\r\n<p><strong>For the performance of a contract:</strong> the development, compliance and undertaking of the purchase contract for the products, items or services You have purchased or of any other contract with Us through the Service.</p>\r\n</li>\r\n<li>\r\n<p><strong>To contact You:</strong> To contact You by email, telephone calls, SMS, or other equivalent forms of electronic communication, such as a mobile application\'s push notifications regarding updates or informative communications related to the functionalities, products or contracted services, including the security updates, when necessary or reasonable for their implementation.</p>\r\n</li>\r\n<li>\r\n<p><strong>To provide You</strong> with news, special offers and general information about other goods, services and events which we offer that are similar to those that you have already purchased or enquired about unless You have opted not to receive such information.</p>\r\n</li>\r\n<li>\r\n<p><strong>To manage Your requests:</strong> To attend and manage Your requests to Us.</p>\r\n</li>\r\n<li>\r\n<p><strong>For business transfers:</strong> We may use Your information to evaluate or conduct a merger, divestiture, restructuring, reorganization, dissolution, or other sale or transfer of some or all of Our assets, whether as a going concern or as part of bankruptcy, liquidation, or similar proceeding, in which Personal Data held by Us about our Service users is among the assets transferred.</p>\r\n</li>\r\n<li>\r\n<p><strong>For other purposes</strong>: We may use Your information for other purposes, such as data analysis, identifying usage trends, determining the effectiveness of our promotional campaigns and to evaluate and improve our Service, products, services, marketing and your experience.</p>\r\n</li>\r\n</ul>\r\n<p>We may share Your personal information in the following situations:</p>\r\n<ul>\r\n<li><strong>With Service Providers:</strong> We may share Your personal information with Service Providers to monitor and analyze the use of our Service, to contact You.</li>\r\n<li><strong>For business transfers:</strong> We may share or transfer Your personal information in connection with, or during negotiations of, any merger, sale of Company assets, financing, or acquisition of all or a portion of Our business to another company.</li>\r\n<li><strong>With Affiliates:</strong> We may share Your information with Our affiliates, in which case we will require those affiliates to honor this Privacy Policy. Affiliates include Our parent company and any other subsidiaries, joint venture partners or other companies that We control or that are under common control with Us.</li>\r\n<li><strong>With business partners:</strong> We may share Your information with Our business partners to offer You certain products, services or promotions.</li>\r\n<li><strong>With other users:</strong> when You share personal information or otherwise interact in the public areas with other users, such information may be viewed by all users and may be publicly distributed outside.</li>\r\n<li><strong>With Your consent</strong>: We may disclose Your personal information for any other purpose with Your consent.</li>\r\n</ul>\r\n<h2>Retention of Your Personal Data</h2>\r\n<p>The Company will retain Your Personal Data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use Your Personal Data to the extent necessary to comply with our legal obligations (for example, if we are required to retain your data to comply with applicable laws), resolve disputes, and enforce our legal agreements and policies.</p>\r\n<p>The Company will also retain Usage Data for internal analysis purposes. Usage Data is generally retained for a shorter period of time, except when this data is used to strengthen the security or to improve the functionality of Our Service, or We are legally obligated to retain this data for longer time periods.</p>\r\n<h2>Transfer of Your Personal Data</h2>\r\n<p>Your information, including Personal Data, is processed at the Company\'s operating offices and in any other places where the parties involved in the processing are located. It means that this information may be transferred to — and maintained on — computers located outside of Your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from Your jurisdiction.</p>\r\n<p>Your consent to this Privacy Policy followed by Your submission of such information represents Your agreement to that transfer.</p>\r\n<p>The Company will take all steps reasonably necessary to ensure that Your data is treated securely and in accordance with this Privacy Policy and no transfer of Your Personal Data will take place to an organization or a country unless there are adequate controls in place including the security of Your data and other personal information.</p>\r\n<h2>Delete Your Personal Data</h2>\r\n<p>You have the right to delete or request that We assist in deleting the Personal Data that We have collected about You.</p>\r\n<p>Our Service may give You the ability to delete certain information about You from within the Service.</p>\r\n<p>You may update, amend, or delete Your information at any time by signing in to Your Account, if you have one, and visiting the account settings section that allows you to manage Your personal information. You may also contact Us to request access to, correct, or delete any personal information that You have provided to Us.</p>\r\n<p>Please note, however, that We may need to retain certain information when we have a legal obligation or lawful basis to do so.</p>\r\n<h2>Disclosure of Your Personal Data</h2>\r\n<h3>Business Transactions</h3>\r\n<p>If the Company is involved in a merger, acquisition or asset sale, Your Personal Data may be transferred. We will provide notice before Your Personal Data is transferred and becomes subject to a different Privacy Policy.</p>\r\n<h3>Law enforcement</h3>\r\n<p>Under certain circumstances, the Company may be required to disclose Your Personal Data if required to do so by law or in response to valid requests by public authorities (e.g. a court or a government agency).</p>\r\n<h3>Other legal requirements</h3>\r\n<p>The Company may disclose Your Personal Data in the good faith belief that such action is necessary to:</p>\r\n<ul>\r\n<li>Comply with a legal obligation</li>\r\n<li>Protect and defend the rights or property of the Company</li>\r\n<li>Prevent or investigate possible wrongdoing in connection with the Service</li>\r\n<li>Protect the personal safety of Users of the Service or the public</li>\r\n<li>Protect against legal liability</li>\r\n</ul>\r\n<h2>Security of Your Personal Data</h2>\r\n<p>The security of Your Personal Data is important to Us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While We strive to use commercially acceptable means to protect Your Personal Data, We cannot guarantee its absolute security.</p>\r\n<h1>Children\'s Privacy</h1>\r\n<p>Our Service does not address anyone under the age of 13. We do not knowingly collect personally identifiable information from anyone under the age of 13. If You are a parent or guardian and You are aware that Your child has provided Us with Personal Data, please contact Us. If We become aware that We have collected Personal Data from anyone under the age of 13 without verification of parental consent, We take steps to remove that information from Our servers.</p>\r\n<p>If We need to rely on consent as a legal basis for processing Your information and Your country requires consent from a parent, We may require Your parent\'s consent before We collect and use that information.</p>\r\n<h1>Links to Other Websites</h1>\r\n<p>Our Service may contain links to other websites that are not operated by Us. If You click on a third party link, You will be directed to that third party\'s site. We strongly advise You to review the Privacy Policy of every site You visit.</p>\r\n<p>We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services.</p>\r\n<h1>Changes to this Privacy Policy</h1>\r\n<p>We may update Our Privacy Policy from time to time. We will notify You of any changes by posting the new Privacy Policy on this page.</p>\r\n<p>We will let You know via email and/or a prominent notice on Our Service, prior to the change becoming effective and update the \"Last updated\" date at the top of this Privacy Policy.</p>\r\n<p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>\r\n<h1>Contact Us</h1>\r\n<p>If you have any questions about this Privacy Policy, You can contact us:</p>', 50, 'Cindy Beauty', 'favicon.jpg', 'black_logo.jpg', 'white_logo.png', 'Version 01.0.00', '©philbrows_cindybeeauty 2020-22', 'All rights reserved', 'bg_img.jpg', '#ad4363', 'qdfskqsj dfsjflg kjdf', 'dskjfhdsj', 1, 'The Barber- single', 'shared_image.jpg', 'https://www.google.com/', '2020-08-14 05:37:51', '2023-05-31 14:30:49');
 
 -- --------------------------------------------------------
 
@@ -197,137 +197,10 @@ CREATE TABLE `currency` (
 --
 
 INSERT INTO `currency` (`id`, `country`, `currency`, `code`, `symbol`) VALUES
-(1, 'Albania', 'Leke', 'ALL', 'Lek'),
-(2, 'America', 'Dollars', 'USD', '$'),
-(3, 'Afghanistan', 'Afghanis', 'AFN', '؋'),
-(4, 'Argentina', 'Pesos', 'ARS', '$'),
-(5, 'Aruba', 'Guilders', 'AWG', 'Afl'),
-(6, 'Australia', 'Dollars', 'AUD', '$'),
-(7, 'Azerbaijan', 'New Manats', 'AZN', '₼'),
-(8, 'Bahamas', 'Dollars', 'BSD', '$'),
-(9, 'Barbados', 'Dollars', 'BBD', '$'),
-(10, 'Belarus', 'Rubles', 'BYR', 'p.'),
-(11, 'Belgium', 'Euro', 'EUR', '€'),
-(12, 'Beliz', 'Dollars', 'BZD', 'BZ$'),
-(13, 'Bermuda', 'Dollars', 'BMD', '$'),
-(14, 'Bolivia', 'Bolivianos', 'BOB', '$b'),
-(15, 'Bosnia and Herzegovina', 'Convertible Marka', 'BAM', 'KM'),
-(16, 'Botswana', 'Pula', 'BWP', 'P'),
-(17, 'Bulgaria', 'Leva', 'BGN', 'Лв.'),
-(18, 'Brazil', 'Reais', 'BRL', 'R$'),
-(19, 'Britain (United Kingdom)', 'Pounds', 'GBP', '£\r\n'),
-(20, 'Brunei Darussalam', 'Dollars', 'BND', '$'),
-(21, 'Cambodia', 'Riels', 'KHR', '៛'),
-(22, 'Canada', 'Dollars', 'CAD', '$'),
-(23, 'Cayman Islands', 'Dollars', 'KYD', '$'),
-(24, 'Chile', 'Pesos', 'CLP', '$'),
-(25, 'China', 'Yuan Renminbi', 'CNY', '¥'),
-(26, 'Colombia', 'Pesos', 'COP', '$'),
-(27, 'Costa Rica', 'Colón', 'CRC', '₡'),
-(28, 'Croatia', 'Kuna', 'HRK', 'kn'),
-(29, 'Cuba', 'Pesos', 'CUP', '₱'),
-(30, 'Cyprus', 'Euro', 'EUR', '€'),
-(31, 'Czech Republic', 'Koruny', 'CZK', 'Kč'),
-(32, 'Denmark', 'Kroner', 'DKK', 'kr'),
-(33, 'Dominican Republic', 'Pesos', 'DOP ', 'RD$'),
-(34, 'East Caribbean', 'Dollars', 'XCD', '$'),
-(35, 'Egypt', 'Pounds', 'EGP', '£'),
-(36, 'El Salvador', 'Colones', 'SVC', '$'),
-(37, 'England (United Kingdom)', 'Pounds', 'GBP', '£'),
-(38, 'Euro', 'Euro', 'EUR', '€'),
-(39, 'Falkland Islands', 'Pounds', 'FKP', '£'),
-(40, 'Fiji', 'Dollars', 'FJD', '$'),
-(41, 'France', 'Euro', 'EUR', '€'),
-(42, 'Ghana', 'Cedis', 'GHC', 'GH₵'),
-(43, 'Gibraltar', 'Pounds', 'GIP', '£'),
-(44, 'Greece', 'Euro', 'EUR', '€'),
-(45, 'Guatemala', 'Quetzales', 'GTQ', 'Q'),
-(46, 'Guernsey', 'Pounds', 'GGP', '£'),
-(47, 'Guyana', 'Dollars', 'GYD', '$'),
-(48, 'Holland (Netherlands)', 'Euro', 'EUR', '€'),
-(49, 'Honduras', 'Lempiras', 'HNL', 'L'),
-(50, 'Hong Kong', 'Dollars', 'HKD', '$'),
-(51, 'Hungary', 'Forint', 'HUF', 'Ft'),
-(52, 'Iceland', 'Kronur', 'ISK', 'kr'),
-(53, 'India', 'Rupees', 'INR', '₹'),
-(54, 'Indonesia', 'Rupiahs', 'IDR', 'Rp'),
-(55, 'Iran', 'Rials', 'IRR', '﷼'),
-(56, 'Ireland', 'Euro', 'EUR', '€'),
-(57, 'Isle of Man', 'Pounds', 'IMP', '£'),
-(58, 'Israel', 'New Shekels', 'ILS', '₪'),
-(59, 'Italy', 'Euro', 'EUR', '€'),
-(60, 'Jamaica', 'Dollars', 'JMD', 'J$'),
-(61, 'Japan', 'Yen', 'JPY', '¥'),
-(62, 'Jersey', 'Pounds', 'JEP', '£'),
-(63, 'Kazakhstan', 'Tenge', 'KZT', '₸'),
-(64, 'Korea (North)', 'Won', 'KPW', '₩'),
-(65, 'Korea (South)', 'Won', 'KRW', '₩'),
-(66, 'Kyrgyzstan', 'Soms', 'KGS', 'Лв'),
-(67, 'Laos', 'Kips', 'LAK', '	₭'),
-(68, 'Latvia', 'Lati', 'LVL', 'Ls'),
-(69, 'Lebanon', 'Pounds', 'LBP', '£'),
-(70, 'Liberia', 'Dollars', 'LRD', '$'),
-(71, 'Liechtenstein', 'Switzerland Francs', 'CHF', 'CHF'),
-(72, 'Lithuania', 'Litai', 'LTL', 'Lt'),
-(73, 'Luxembourg', 'Euro', 'EUR', '€'),
-(74, 'Macedonia', 'Denars', 'MKD', 'Ден\r\n'),
-(75, 'Malaysia', 'Ringgits', 'MYR', 'RM'),
-(76, 'Malta', 'Euro', 'EUR', '€'),
-(77, 'Mauritius', 'Rupees', 'MUR', '₹'),
-(78, 'Mexico', 'Pesos', 'MXN', '$'),
-(79, 'Mongolia', 'Tugriks', 'MNT', '₮'),
-(80, 'Mozambique', 'Meticais', 'MZN', 'MT'),
-(81, 'Namibia', 'Dollars', 'NAD', '$'),
-(82, 'Nepal', 'Rupees', 'NPR', '₹'),
-(83, 'Netherlands Antilles', 'Guilders', 'ANG', 'ƒ'),
-(84, 'Netherlands', 'Euro', 'EUR', '€'),
-(85, 'New Zealand', 'Dollars', 'NZD', '$'),
-(86, 'Nicaragua', 'Cordobas', 'NIO', 'C$'),
-(87, 'Nigeria', 'Nairas', 'NGN', '₦'),
-(88, 'North Korea', 'Won', 'KPW', '₩'),
-(89, 'Norway', 'Krone', 'NOK', 'kr'),
-(90, 'Oman', 'Rials', 'OMR', '﷼'),
-(91, 'Pakistan', 'Rupees', 'PKR', '₹'),
-(92, 'Panama', 'Balboa', 'PAB', 'B/.'),
-(93, 'Paraguay', 'Guarani', 'PYG', 'Gs'),
-(94, 'Peru', 'Nuevos Soles', 'PEN', 'S/.'),
-(95, 'Philippines', 'Pesos', 'PHP', 'Php'),
-(96, 'Poland', 'Zlotych', 'PLN', 'zł'),
-(97, 'Qatar', 'Rials', 'QAR', '﷼'),
-(98, 'Romania', 'New Lei', 'RON', 'lei'),
-(99, 'Russia', 'Rubles', 'RUB', '₽'),
-(100, 'Saint Helena', 'Pounds', 'SHP', '£'),
-(101, 'Saudi Arabia', 'Riyals', 'SAR', '﷼'),
-(102, 'Serbia', 'Dinars', 'RSD', 'ع.د'),
-(103, 'Seychelles', 'Rupees', 'SCR', '₹'),
-(104, 'Singapore', 'Dollars', 'SGD', '$'),
-(105, 'Slovenia', 'Euro', 'EUR', '€'),
-(106, 'Solomon Islands', 'Dollars', 'SBD', '$'),
-(107, 'Somalia', 'Shillings', 'SOS', 'S'),
-(108, 'South Africa', 'Rand', 'ZAR', 'R'),
-(109, 'South Korea', 'Won', 'KRW', '₩'),
-(110, 'Spain', 'Euro', 'EUR', '€'),
-(111, 'Sri Lanka', 'Rupees', 'LKR', '₹'),
-(112, 'Sweden', 'Kronor', 'SEK', 'kr'),
-(113, 'Switzerland', 'Francs', 'CHF', 'CHF'),
-(114, 'Suriname', 'Dollars', 'SRD', '$'),
-(115, 'Syria', 'Pounds', 'SYP', '£'),
-(116, 'Taiwan', 'New Dollars', 'TWD', 'NT$'),
-(117, 'Thailand', 'Baht', 'THB', '฿'),
-(118, 'Trinidad and Tobago', 'Dollars', 'TTD', 'TT$'),
-(119, 'Turkey', 'Lira', 'TRY', 'TL'),
-(120, 'Turkey', 'Liras', 'TRL', '₺'),
-(121, 'Tuvalu', 'Dollars', 'TVD', '$'),
-(122, 'Ukraine', 'Hryvnia', 'UAH', '₴'),
-(123, 'United Kingdom', 'Pounds', 'GBP', '£'),
-(124, 'United States of America', 'Dollars', 'USD', '$'),
-(125, 'Uruguay', 'Pesos', 'UYU', '$U'),
-(126, 'Uzbekistan', 'Sums', 'UZS', 'so\'m'),
-(127, 'Vatican City', 'Euro', 'EUR', '€'),
-(128, 'Venezuela', 'Bolivares Fuertes', 'VEF', 'Bs'),
-(129, 'Vietnam', 'Dong', 'VND', '₫\r\n'),
-(130, 'Yemen', 'Rials', 'YER', '﷼'),
-(131, 'Zimbabwe', 'Zimbabwe Dollars', 'ZWD', 'Z$');
+(null, "Morocco", "Dirhams Marocain", "MAD", "DH"),
+(null, "United States", "US Dollar", "USD", "$"),
+(null, "European Union", "Euro", "EUR", "€"),
+(null, "United Kingdom", "Sterling", "GBP", "£");
 
 -- --------------------------------------------------------
 
@@ -418,9 +291,9 @@ CREATE TABLE `language` (
 --
 
 insert into `language` (id, name, file, image, direction, status, created_at, updated_at)
-values  (1, 'English', 'English.json', 'English.jpg', 'ltr', 1, '2020-10-02 06:56:49', '2020-10-02 06:56:49'),
-        (2, 'Arabic', 'Arabic.json', 'Arabic.png', 'rtl', 0, '2020-10-02 07:04:41', '2020-10-02 07:04:41'),
-        (3, 'French', 'French.json', 'French.jpg', 'ltr', 1, '2023-10-02 07:08:25', '2023-10-02 07:08:25');
+values  (null, 'English', 'English.json', 'English.jpg', 'ltr', 1, '2020-10-02 06:56:49', '2020-10-02 06:56:49'),
+        (null, 'Arabic', 'Arabic.json', 'Arabic.png', 'rtl', 0, '2020-10-02 07:04:41', '2020-10-02 07:04:41'),
+        (null, 'French', 'French.json', 'French.jpg', 'ltr', 1, '2023-10-02 07:08:25', '2023-10-02 07:08:25');
 
 -- --------------------------------------------------------
 
@@ -705,10 +578,10 @@ CREATE TABLE `template` (
 --
 
 INSERT INTO `template` (`id`, `title`, `subject`, `mail_content`, `msg_content`, `created_at`, `updated_at`) VALUES
-(1, 'User Verification', 'verification', '<p>Dear {{User_name}} Your Verification Code Is {{Otp}} {{App_name}}</p><p><br></p>', 'dear {{user_name}} your verification code is {{otp}} from {{app_name}}', NULL, '2021-07-06 09:54:47'),
-(2, 'Create Appointment', 'create appointment', '<p>dear {{user_name}} appointment created successfully appointment id is {{appointment_id}} at {{date}}{{time}}</p><p>from:{{app_name}}</p>', 'dear {{user_name}} appointment created successfully appointment id is {{appointment_id}} at {{date}}{{time}} from {{app_name}}', NULL, '2021-04-30 11:19:00'),
-(3, 'Forgot Password', 'forgot password', 'dear {{user_name}} your new password is {{password}} from {{app_name}}', 'dear {{user_name}} your new password is {{password}} from {{app_name}}', NULL, '2021-04-30 11:20:19'),
-(4, 'Change status', 'status change', '<p>dear {{user_name}} your appointment appointment id is {{appointment_id}} is successfully {{status}} at {{date}} </p><p>from {{app_name}}</p><p>thank you..</p>', 'dear {{user_name}} your appointment appointment id is {{appointment_id}} is successfully {{status}} at {{date}} from {{app_name}}', NULL, '2021-04-30 11:21:35');
+(1, 'User Verification', 'Code de vérification', '<p>Cher {{User_name}}</p><p>Votre code de vérification est {{OTP}}</p><p>{{App_name}}</p>', 'Cher {{User_name}}  Votre code de vérification est {{OTP}}  {{App_name}}', NULL, '2023-05-31 13:40:04'),
+(2, 'Create Appointment', 'Création du rendez-vous', '<p>Cher {{user_name}} </p><p>Votre rendez-vous est créé avec succès.<br></p><p>Votre ID du rendez-vous est {{appointment_id}} à {{date}}{{time}}</p><p>de:{{app_name}}</p>', 'Cher {{user_name}}  Votre rendez-vous est créé avec succès.  Votre ID du rendez-vous est {{appointment_id}} à {{date}}{{time}}  de:{{app_name}}', NULL, '2023-05-18 21:17:32'),
+(3, 'Forgot Password', 'Mot de passe oublié', '<p>Cher {{user_name}} </p><p>Votre nouveau mot de passe est {{password}} </p><p>de {{app_name}}</p>', 'Cher {{user_name}}  Votre nouveau mot de passe est {{password}}  de {{app_name}}', NULL, '2023-05-18 21:18:16'),
+(4, 'Change status', 'Changement de statut', '<p>Chez {{user_name}} </p><p>Votre séance {{appointment_id}} a été {{status}} avec succès à {{date}} </p><p>De {{app_name}}</p><p>Merci..</p>', 'Chez {{user_name}}  Votre séance {{appointment_id}} a été {{status}} avec succès à {{date}}  De {{app_name}}  Merci..', NULL, '2023-05-18 21:23:01');
 
 -- --------------------------------------------------------
 
@@ -743,7 +616,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `image`, `email`, `otp`, `added_by`, `email_verified_at`, `password`, `code`, `phone`, `status`, `role`, `verify`, `device_token`, `notification`, `mail`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'noimage.jpg', 'youremmail@domain.com', NULL, NULL, NULL, '$2a$04$HropzhsDf3TbrzRg3WPvDe45hRh1vck1LHoiw3wQEpKipBbD5Jus6', NULL, '9958725698', 1, 1, 1, NULL, 1, 1, NULL, NULL, NULL);
+(null, 'Admin', 'admin_64675e22bebd3.png', 'admin@admin.com', NULL, NULL, NULL, '$2y$10$g.mNA3XBb2OnC5ko5hILieFZYzTu21x7rshn4fJ7IffuqnbxSo/S6', '+212', '627106455', 1, 1, 1, NULL, 1, 1, NULL, NOW(), NOW());
 
 -- --------------------------------------------------------
 
