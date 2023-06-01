@@ -197,10 +197,10 @@ CREATE TABLE `currency` (
 --
 
 INSERT INTO `currency` (`id`, `country`, `currency`, `code`, `symbol`) VALUES
-(null, "Morocco", "Dirhams Marocain", "MAD", "DH"),
-(null, "United States", "US Dollar", "USD", "$"),
-(null, "European Union", "Euro", "EUR", "€"),
-(null, "United Kingdom", "Sterling", "GBP", "£");
+(1, "Morocco", "Dirhams Marocain", "MAD", "DH"),
+(2, "United States", "US Dollar", "USD", "$"),
+(3, "European Union", "Euro", "EUR", "€"),
+(4, "United Kingdom", "Sterling", "GBP", "£");
 
 -- --------------------------------------------------------
 
@@ -291,9 +291,9 @@ CREATE TABLE `language` (
 --
 
 insert into `language` (id, name, file, image, direction, status, created_at, updated_at)
-values  (null, 'English', 'English.json', 'English.jpg', 'ltr', 1, '2020-10-02 06:56:49', '2020-10-02 06:56:49'),
-        (null, 'Arabic', 'Arabic.json', 'Arabic.png', 'rtl', 0, '2020-10-02 07:04:41', '2020-10-02 07:04:41'),
-        (null, 'French', 'French.json', 'French.jpg', 'ltr', 1, '2023-10-02 07:08:25', '2023-10-02 07:08:25');
+values  (1, 'English', 'English.json', 'English.jpg', 'ltr', 1, '2020-10-02 06:56:49', '2020-10-02 06:56:49'),
+        (2, 'Arabic', 'Arabic.json', 'Arabic.png', 'rtl', 0, '2020-10-02 07:04:41', '2020-10-02 07:04:41'),
+        (3, 'French', 'French.json', 'French.jpg', 'ltr', 1, '2023-10-02 07:08:25', '2023-10-02 07:08:25');
 
 -- --------------------------------------------------------
 
@@ -616,7 +616,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `image`, `email`, `otp`, `added_by`, `email_verified_at`, `password`, `code`, `phone`, `status`, `role`, `verify`, `device_token`, `notification`, `mail`, `remember_token`, `created_at`, `updated_at`) VALUES
-(null, 'Admin', 'admin_64675e22bebd3.png', 'admin@admin.com', NULL, NULL, NULL, '$2y$10$g.mNA3XBb2OnC5ko5hILieFZYzTu21x7rshn4fJ7IffuqnbxSo/S6', '+212', '627106455', 1, 1, 1, NULL, 1, 1, NULL, NOW(), NOW());
+(1, 'Admin', 'admin_64675e22bebd3.png', 'admin@admin.com', NULL, NULL, NULL, '$2y$10$g.mNA3XBb2OnC5ko5hILieFZYzTu21x7rshn4fJ7IffuqnbxSo/S6', '+212', '627106455', 1, 1, 1, NULL, 1, 1, NULL, NULL, NOW());
 
 -- --------------------------------------------------------
 
