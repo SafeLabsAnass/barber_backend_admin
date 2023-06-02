@@ -80,6 +80,7 @@ class NotificationController extends CommonController
                        $request->title
                    );
                 } catch (\Throwable $th) {
+                    dd($th);
                 }  
             } 
         }

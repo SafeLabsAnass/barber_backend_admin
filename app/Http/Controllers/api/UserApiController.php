@@ -1044,7 +1044,8 @@ class UserApiController extends Controller
                     $create_appointment->subject
                 );
             } catch (\Throwable $th) {
-            }
+             
+                        }
         }
 
         return response()->json(
