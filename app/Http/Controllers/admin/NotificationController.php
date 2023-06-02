@@ -70,19 +70,18 @@ class NotificationController extends CommonController
             foreach (json_decode($ids) as $key) {
                 try {
                     $user = User::where("status", 1)->find($key);
-//                    OneSignal::sendNotificationToUser(
-//                        $request->msg,
-//                        $user->device_token,
-//                        $url = null,
-//                        $data = null,
-//                        $buttons = null,
-//                        $schedule = null,
-//                        $request->title
-//                    );
+                   OneSignal::sendNotificationToUser(
+                       $request->msg,
+                       $user->device_token,
+                       $url = null,
+                       $data = null,
+                       $buttons = null,
+                       $schedule = null,
+                       $request->title
+                   );
                 } catch (\Throwable $th) {
-                    dd($th);
-                }
-            }
+                }  
+            } 
         }
         return redirect("admin/notification/send");
     }
